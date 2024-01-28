@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes,Route, useNavigate } from "react-router-dom"
+import { Routes,Route,BrowserRouter } from "react-router-dom"
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Home from "./container/Home"
@@ -12,7 +12,9 @@ function App() {
 
   return (
     <>
+    <BrowserRouter>
       <Home />
+    </BrowserRouter>
     </>
   )
 }
