@@ -14,8 +14,8 @@ app.use(express.json()); //access the response
 
 app.post("/articles", async (req, res) => {
     try {
-        const {descr} = req.body;
-        const newArticle = await pool.query("INSERT INTO articles (descr) VALUES($1) RETURNING *", [descr]);
+        const {title,price,unit,stock,descr} = req.body;
+        const newArticle = await pool.query("INSERT INTO articles (title,price,unit,stock,descr) VALUES($1,$2,$3,$4,$5) RETURNING *", [title,price,unit,stock,descr]);
         res.json(newArticle.rows[0]);
     } catch (error) {
         console.error(error.message);

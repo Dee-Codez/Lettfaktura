@@ -2,5 +2,9 @@ CREATE DATABASE LettDB;
 
 CREATE TABLE articles(
     article_id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    price VARCHAR(255) NOT NULL,
+    unit VARCHAR(255) NOT NULL,
+    stock VARCHAR(255) NOT NULL,
     descr VARCHAR(255)
 );
