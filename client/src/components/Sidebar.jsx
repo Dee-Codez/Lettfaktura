@@ -56,8 +56,10 @@ const Sidebar = ({closeToggle}) => {
             {categs.map((items) => {
                 return (
                     <NavLink
+                      tag={Link}
                       to={`/items/${items.link}`}
                       className={({isActive}) => isActive ? isActiveStyle : isNotActiveStyle}
+                      onClick={handleCloseSidebar}
                       key={items.name}>
                         <div className='pl-8'>{items.img}</div>
                         <div>{items.name}</div>

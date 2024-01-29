@@ -16,19 +16,19 @@ const Home = () => {
   return (
     <div className='flex flex-col w-full h-screen transition-height duration-75 ease-out'>
         
-        <div className='hidden md:flex flex-row'>
+        <div className='hidden xl:flex flex-row'>
             <Navbar /> 
         </div>
-        <div className='hidden md:flex h-screen flex-initial'>
+        <div className='hidden xl:flex h-screen flex-initial'>
             <Sidebar/>
             <ArticleCont/>
         </div>
-            <div className='flex md:hidden flex-col'>
-                <div className='flex md:hidden flex-row'>
+            <div className='flex xl:hidden flex-col'>
+                <div className='flex xl:hidden flex-row'>
                     <div className='p-2 w-screen bg-[#0f7ee9] flex flex-row justify-between items-center shadow-md'>
                         <HiMenu fontSize={40} className='cursor-pointer' onClick={() => setToggleSidebar(true)}/>
                         <div className='flex flex-row gap-2 md:gap-5'>
-                            <div className='md:ml-20 ml-7'>
+                            <div className='hidden md:ml-20'>
                                 <FaUserCircle fontSize={50} className='text-white' />
                             </div>
                         </div>
