@@ -7,7 +7,7 @@ import SearchArt from '../components/SearchArt'
 
 const ArticleCont = () => {
   return (
-    <div className=''>
+    <div className= 'flex flex-col grow'>
         <div className=''>
             <Searchbar />
         </div>
