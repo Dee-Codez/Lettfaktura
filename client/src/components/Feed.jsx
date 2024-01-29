@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, Fragment, useEffect, useState } from "react";
 import { BiDownArrowAlt } from "react-icons/bi";
 import { CiMenuKebab } from "react-icons/ci";
 
@@ -22,36 +22,37 @@ const Feed = () => {
     
 
   return (
-    //  Column By Column Approach
+
+    // Column By Column Approach
 
     <div className='text-black'>
       <div>
         <div className='mt-10 mx-10'>
-            <div className='flex'>
-                <div className='flex flex-row gap-8'>
-                    <div className='flex flex-col items-center'>
-                        <div className="flex flex-row mt-2 items-center">
+            <div className='flex items-center justify-center'>
+                <div className='flex flex-row gap-4 sm:gap-8'>
+                    <div className='hidden ph:flex flex-col items-center'>
+                        <div className="flex min-w-[120px] flex-row mx-2 mt-1 items-center">
                             Article No.
                             <BiDownArrowAlt fontSize={30} color="cyan" />
                         </div>
-                        <div className="flex mt-4 flex-col gap-2">
+                    <div className="flex mt-4 flex-col gap-2">
                         {articles.map(article =>(
                             <div className="text-black rounded-full p-1 px-10 border border-slate-300 " key={article.article_id}>
                                 {article.article_id}
                             </div>
                         ))}
-                        </div>
                     </div>
-                    <div className='flex flex-col'>
-                        <div className="flex flex-row mt-2 items-center">
+                    </div>
+                    <div className='flex flex-col ml-[-20px] sm:ml-0'>
+                        <div className="flex flex-row mt-1 items-center">
                             Product/Service
                             <BiDownArrowAlt fontSize={30} color="lime" />
                         </div>
-                        <div className="flex mt-4 flex-col gap-2">
+                        <div className="flex mt-4   sm:max-w-[380px] max-w-[190px] flex-col gap-2">
                         {articles.map(article =>(
-                            <div className="text-black capitalize rounded-full p-1 px-4 border border-slate-300 " key={article.article_id}>
+                            <p className="text-black line-clamp-1 capitalize rounded-full p-1 px-2 sm:px-4 border border-slate-300 " key={article.article_id}>
                                 {article.title}
-                            </div>
+                            </p>
                         ))}
                         </div>
                     </div>
@@ -61,7 +62,7 @@ const Feed = () => {
                         </div>
                         <div className="flex mt-4 flex-col gap-2">
                         {articles.map(article =>(
-                            <div className="text-black capitalize rounded-full p-1 px-4 border border-slate-300 " key={article.article_id}>
+                            <div className="text-black line-clamp-1 capitalize rounded-full p-1 px-4 border border-slate-300 " key={article.article_id}>
                                 {article.price}
                             </div>
                         ))}
@@ -79,7 +80,7 @@ const Feed = () => {
                         ))}
                         </div>
                     </div>
-                    <div className='flex flex-col'>
+                    <div className='hidden lg:flex flex-col'>
                         <div className="flex flex-row mt-2 ml-2">
                             Stock
                         </div>
@@ -91,24 +92,22 @@ const Feed = () => {
                         ))}
                         </div>
                     </div>
-                    <div className='flex flex-col'>
+                    <div className='hidden tv:flex flex-col'>
                         <div className="flex flex-row mt-2 ml-2">
                             Description
                         </div>
                         <div className="flex mt-4 max-h-1 flex-col gap-2">
                         {articles.map(article =>(
-                            <p className="text-black max-w-[300px] truncate rounded-full p-1 px-4 border border-slate-300 " key={article.article_id}>
+                            <p className="text-black pb-7 line-clamp-1 max-w-[300px]  rounded-full p-1 px-4 border border-slate-300 " key={article.article_id}>
                             {article.descr? article.descr:" - "}
                             </p>
                         ))}
                         </div>
                     </div>
-                    <div>
+                    <div className="mt-12 flex flex-col gap-2">
                         {articles.map(article =>(
-                            <div className="text-black capitalize rounded-full p-1 px-4 border border-slate-300 " key={article.article_id}>
-                            <select className="appearance-none" name="" id="">
-                            <CiMenuKebab color="black" fontSize={20} />
-                            </select>
+                            <div className="text-black rounded-full py-2 px-2 border border-slate-300 " key={article.article_id}>
+                                <CiMenuKebab color="black" fontSize={16} />
                             </div>
                         ))}
                     </div>
@@ -124,17 +123,17 @@ const Feed = () => {
     
 
 
-    // Row By Row Approach
+    // Row By Row Approach With Grid
     // <div>
     //     <div>
     //         <div className="text-black mt-10 mx-5 bg-slate-200">
     //             <div>
     //                 <div className="flex flex-col">
     //                     <div className="flex flex-row gap-2 items-center">
-    //                         <div className="flex flex-row p-2 items-center ">
-    //                             <div className="ml-2">Article No.</div>
-    //                             <BiDownArrowAlt fontSize={30} color="cyan" />
-    //                         </div>
+                            // <div className="flex flex-row p-2 items-center ">
+                            //     <div className="ml-2">Article No.</div>
+                            //     <BiDownArrowAlt fontSize={30} color="cyan" />
+                            // </div>
     //                         <div className="flex flex-row p-2 bg-slate-400 max-w-[35rem] items-center">
     //                             <div>Product/Service</div>
     //                             <BiDownArrowAlt fontSize={30} color="lime" />

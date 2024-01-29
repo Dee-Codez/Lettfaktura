@@ -61,8 +61,8 @@ const CreateArt = () => {
                                     }}
                                 >
                                     <option value="other" className='bg-white'>Select Unit</option>   
-                                    <option key="kmph" value={unit}>Kilometer/Hour</option>
-                                    <option key="mph" value={unit}>Mile/Hour</option>
+                                    <option key="kmph" value="kmph">Kilometer/Hour</option>
+                                    <option key="mph" value="mph">Mile/Hour</option>
                                 </select>
                             </div>
                             <input type="text"
