@@ -11,7 +11,7 @@ import './App.css'
 function App() {
   const navigate = useNavigate();
   useEffect(() => {
-    navigate('/items/invoices');
+    navigate('/invoices');
   }, [])
 
   return (

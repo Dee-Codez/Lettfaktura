@@ -1,10 +1,19 @@
-import { React, Fragment, useEffect, useState } from "react";
+import { React, Fragment, useEffect, useState, useMemo } from "react";
 import { BiDownArrowAlt } from "react-icons/bi";
 import { CiMenuKebab } from "react-icons/ci";
+import { Link, useNavigate } from "react-router-dom";
+import BtnModal from '../components/BtnModal'
 
 
 const Feed = () => {
+
+    const navigate = useNavigate();
+
     const [articles, setArticles] = useState([]);
+    const [open,setOpen] = useState(false);
+    const [modal, setModal] = useState(null);
+    
+
 
     const getArticles = async () => {
         try {
@@ -15,10 +24,15 @@ const Feed = () => {
             console.error(error.message);
         }
     }
+    const openModel = (article) => {
+        return (
+                <BtnModal open={open} onClose={() => setOpen(false)} article={article}/>
+        )
+    }
 
     useEffect(() => {
       getArticles();
-    }, [])
+}, [open])
     
 
   return (
@@ -106,11 +120,26 @@ const Feed = () => {
                     </div>
                     <div className="mt-12 flex flex-col gap-2">
                         {articles.map(article =>(
-                            <div className="text-black rounded-full py-2 px-2 border border-slate-300 " key={article.article_id}>
-                                <CiMenuKebab color="black" fontSize={16} />
-                            </div>
+                            <>
+                                <Link to={`/invoices/${article.article_id}`} key={article} onClick={() => {
+                                    setOpen(true);
+                                    setModal(article);
+                                    }}>
+                                    <div className="text-black rounded-full py-2 px-2 border border-slate-300 " >
+                                        <CiMenuKebab onClick={(article) => openModel(article)} color="black" fontSize={16} />
+                                    </div>
+                                </Link>
+                                { modal ? (
+                                    <BtnModal open={open} onClose={() => {
+                                        setOpen(false);
+                                        navigate("/invoices");
+                                    }}  article={modal}/>
+                                ) : (<></>)}
+                            </>
+                                
                         ))}
                     </div>
+                    
 
 
                 </div>

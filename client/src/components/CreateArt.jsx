@@ -20,7 +20,7 @@ const CreateArt = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body)
             }).then(() => {
-                navigate('/items/invoices')
+                navigate('/invoices')
             })
             console.log(response);
         } catch (error) {
@@ -33,9 +33,9 @@ const CreateArt = () => {
     <div className='flex flex-col'>
         <div className='mx-10 mt-10 rounded-lg shadow-xl bg-slate-100'>
             <div className='flex flex-col text-black'>
-                <div className='pt-3 font-semibold text-2xl text-center'>Creating Article</div>
+                <div className='pt-8 font-semibold text-2xl text-center'>Creating Article</div>
                     <div className='flex flex-col justify-center items-center'>
-                        <div className='flex flex-1 flex-col gap-6 lg:pl-5 pb-20 mt-6 w-fit'>
+                        <div className='flex flex-1 flex-col gap-6 lg:pl-5 pb-20 mt-10 w-fit'>
                             <input type="text" 
                                 value={title}
                                 onChange={(e)=> {
@@ -75,19 +75,19 @@ const CreateArt = () => {
                                 className='outline-none text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-slate-100'
                             />
                             <div className='flex justify-center'>
-                                <input type="text" 
+                                <textarea type="text" 
                                     value={descr}
                                     onChange={(e)=> {
                                     setDescr(e.target.value);
                                     }}
                                     placeholder='Add your description here'
                                     className='outline-none grow text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-slate-100'
-                                />
+                                ></textarea>
                             </div>
                             <div className='flex justify-center items-end mt-10'>
                                 <button type='button'
                                 onClick={onSubmit}
-                                className='bg-red-500 text-white font-bold px-4 rounded-full outline-none'
+                                className='bg-green-500 text-white font-bold px-4 rounded-full outline-none'
                                 >
                                     Save Article
                                 </button>

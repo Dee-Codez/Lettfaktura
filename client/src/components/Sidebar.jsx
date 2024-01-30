@@ -57,7 +57,7 @@ const Sidebar = ({closeToggle}) => {
                 return (
                     <NavLink
                       tag={Link}
-                      to={`/items/${items.link}`}
+                      to={`/${items.link}`}
                       className={({isActive}) => isActive ? isActiveStyle : isNotActiveStyle}
                       onClick={handleCloseSidebar}
                       key={items.name}>
