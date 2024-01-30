@@ -22,13 +22,26 @@ const BtnModal = ({open , onClose, article}) => {
     const [stock, setStock] = useState((article) ? article.stock : '');
     const [descr, setDescr] = useState((article) ? article.descr : '');
 
+    const onUpdate = async (e) => {
+        e.preventDefault();
+        try {
+            const body = {title,price, unit, stock, descr}
+            const response = await fetch(`http://localhost:5000/articles/${article.article_id}`,{
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(body)
+            })
+            onClose();
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
     const onDelete = async () => {
         try {
-            console.log(article.article_id);
             const response = await fetch(`http://localhost:5000/articles/${article.article_id}`,{
                 method: 'DELETE',
             })
-            console.log(response);
             onClose();
         } catch (error) {
             console.error(error.message);
@@ -129,7 +142,7 @@ const BtnModal = ({open , onClose, article}) => {
                     <div className='flex flex-row mt-4 pb-4 justify-center'>
                         <div className='flex flex-row gap-14 items-center'>
                             <div className='flex flex-row items-start mt-10'>
-                                <Link to="/invoices" onClick={""} className='bg-blue-500 flex gap-2 flex-row items-center hover:text-blue-950 hover:bg-blue-300  p-4 text-white font-bold px-6 rounded-full outline-none'>
+                                <Link to="/invoices" onClick={onUpdate} className='bg-blue-500 flex gap-2 flex-row items-center hover:text-blue-950 hover:bg-blue-300  p-4 text-white font-bold px-6 rounded-full outline-none'>
                                     <MdEditSquare />Edit
                                 </Link>      
                             </div>
