@@ -2,6 +2,7 @@ import React,{useState, useRef, useEffect} from 'react'
 import { ImCross } from "react-icons/im";
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
+import { MdDeleteForever, MdEditSquare  } from "react-icons/md";
 
 const BtnModal = ({open , onClose, article}) => {
 
@@ -125,26 +126,27 @@ const BtnModal = ({open , onClose, article}) => {
                                     ></textarea>
                          </div>
                     </div>
-                    <div className='flex flex-row mt-6'>
-                        <div>
-                            <div className='flex justify-center items-end mt-10'>
-                                {/* <div onClick={onClose} className='bg-red-500 text-white font-bold px-4 rounded-full outline-none'>
-                                    Delete
-                                </div> */}
-                                <Link to="/invoices" onClick={onDelete} className='bg-red-500 text-white font-bold px-4 rounded-full outline-none'>
-                                    X
+                    <div className='flex flex-row mt-4 pb-4 justify-center'>
+                        <div className='flex flex-row gap-14 items-center'>
+                            <div className='flex flex-row items-start mt-10'>
+                                <Link to="/invoices" onClick={""} className='bg-blue-500 flex gap-2 flex-row items-center hover:text-blue-950 hover:bg-blue-300  p-4 text-white font-bold px-6 rounded-full outline-none'>
+                                    <MdEditSquare />Edit
+                                </Link>      
+                            </div>
+                            <div className='flex flex-row items-end mt-10'>
+                                <Link to="/invoices" onClick={onDelete} className='bg-red-500 gap-1 flex flex-row items-center hover:text-red-950 hover:bg-red-300  p-4 text-white font-bold px-6 rounded-full outline-none'>
+                                    <MdDeleteForever />Delete
                                 </Link>
                             </div>
                         </div>
-                        <div>
-
-                        </div>
-
-                    </div>
+                    <div>
                 </div>
-            </div>
 
+            </div>
         </div>
+    </div>
+
+    </div>
       </div>
     </div>
   )
