@@ -26,7 +26,7 @@ const BtnModal = ({open , onClose, article}) => {
         e.preventDefault();
         try {
             const body = {title,price, unit, stock, descr}
-            const response = await fetch(`http://localhost:5000/articles/${article.article_id}`,{
+            const response = await fetch(`https://lettfaktura-backend.vercel.app/articles/${article.article_id}`,{
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(body)
@@ -39,7 +39,7 @@ const BtnModal = ({open , onClose, article}) => {
 
     const onDelete = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/articles/${article.article_id}`,{
+            const response = await fetch(`https://lettfaktura-backend.vercel.app/${article.article_id}`,{
                 method: 'DELETE',
             })
             onClose();
