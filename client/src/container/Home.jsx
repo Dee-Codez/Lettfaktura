@@ -14,7 +14,7 @@ const Home = () => {
 
 
   return (
-    <div className='flex flex-col w-full h-screen transition-height duration-75 ease-out'>
+    <div className='flex flex-col w-screen h-screen transition-height duration-75 ease-out'>
         
         <div className='hidden xl:flex flex-row'>
             <Navbar /> 

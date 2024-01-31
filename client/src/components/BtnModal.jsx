@@ -59,8 +59,8 @@ const BtnModal = ({open , onClose, article}) => {
     
 
   return (
-    <div onClick={onClose} className={`fixed inset-0  flex justify-center items-center transition-colors duration-200 ${open ? "visible bg-black/50" : "invisible "}`}>
-      <div onClick={(e) => e.stopPropagation()} className='text-white bg-white p-5 rounded-2xl'>
+    <div onClick={onClose} className={`fixed inset-0  flex justify-center items-center transition-colors duration-200 ${open ? "visible bg-black/25 " : "invisible "}`}>
+      <div onClick={(e) => e.stopPropagation()} className='text-white bg-white p-1 sm:p-5 rounded-2xl'>
         <button onClick={() => {
             onClose();
 
@@ -74,19 +74,19 @@ const BtnModal = ({open , onClose, article}) => {
                         </div>
                     </div>
                     <div className='flex flex-row items-center mt-6'>
-                        <label className='text-3xl px-4' htmlFor="title">Title : </label>
+                        <label className='text-3xl px-2 sm:px-4' htmlFor="title">Title : </label>
                         <input type="text" 
                             value={title}                
                             onChange={(e)=> {
                                 setTitle(e.target.value);
                             }}
                             placeholder='Add your title here'
-                            className='outline-none bg-slate-100 text-center text-lg sm:text-xl font-bold border-b-2 p-2 border-[#0f7ee9]'
+                            className='outline-none bg-white text-center text-lg sm:text-xl font-bold border-b-2 p-2 border-[#0f7ee9]'
                         />
                         
                     </div>
                     <div className='flex flex-row mt-6'>
-                        <label className='text-3xl px-4' htmlFor="price">Price : </label>
+                        <label className='text-3xl px-2 sm:px-4' htmlFor="price">Price : </label>
                         <input type="text"
                                     inputMode="numeric" 
                                     value={price}
@@ -94,14 +94,14 @@ const BtnModal = ({open , onClose, article}) => {
                                     setPrice(e.target.value);
                                     }}
                                     placeholder='Enter Price'
-                                    className='outline-none text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-slate-100'
+                                    className='outline-none text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-white'
                                 />
                     </div>
                     <div className='flex flex-row mt-6'>
-                        <label className='text-3xl px-4' htmlFor="unit">Unit : </label>
+                        <label className='text-3xl px-2 sm:px-4' htmlFor="unit">Unit : </label>
                         <div className='text-center'>
                                     <select 
-                                        className='outline-none w-4/5 text-base font-normal border-b-2 text-center border-[#0f7ee9] bg-slate-100 p-2 rounded-md cursor-pointer'
+                                        className='outline-none w-4/5 text-base font-normal border-b-2 text-center border-[#0f7ee9] bg-white p-2 rounded-md cursor-pointer'
                                         onChange={(e) => {
                                         setUnit(e.target.value);
                                         }}
@@ -114,7 +114,7 @@ const BtnModal = ({open , onClose, article}) => {
                         </div>
                     </div>
                     <div className='flex flex-row mt-6'>
-                        <label className='text-3xl px-4' htmlFor="stock">Stock : </label>
+                        <label className='text-3xl px-2 sm:px-4' htmlFor="stock">Stock : </label>
                         <input type="text"
                                     inputMode="numeric" 
                                     value={stock}
@@ -122,11 +122,11 @@ const BtnModal = ({open , onClose, article}) => {
                                     setStock(e.target.value);
                                     }}
                                     placeholder='Enter Number Of Unit In Stock'
-                                    className='outline-none text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-slate-100'
+                                    className='outline-none text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-white'
                                 />
                     </div>
                     <div className='flex flex-row mt-6'>
-                    <label className='text-3xl px-4' htmlFor="descr">Description : </label>
+                    <label className='text-3xl px-2 sm:px-4' htmlFor="descr">Description : </label>
                         <div className='flex justify-center'>
                                     <textarea
                                         value={descr}
@@ -135,7 +135,7 @@ const BtnModal = ({open , onClose, article}) => {
                                         setDescr(e.target.value);
                                         }}
                                         placeholder='Add your description here'
-                                        className='outline-none grow text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-slate-100'
+                                        className='outline-none grow text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-white'
                                     ></textarea>
                          </div>
                     </div>
