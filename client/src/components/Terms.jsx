@@ -100,7 +100,7 @@ const Terms = () => {
                     </p>
                 </div>
                 <div className='flex p-3 px-6'  >
-                        <div className='border hover:bg-slate-400 hover:border-slate-600 hover:text-white text-red-600 bg-slate-300 transition flex flex-row gap-5 items-center rounded-3xl py-4 px-8 text-2xl cursor-pointer' onClick={() => {navigate('/invoices')}}>
+                        <div className='border text-center hover:bg-slate-400 hover:border-slate-600 hover:text-white text-red-600 bg-slate-300 transition flex flex-row gap-5 items-center rounded-3xl py-4 px-8 text-2xl cursor-pointer' onClick={() => {navigate('/invoices')}}>
                             Accept And Continue <GrLinkNext fontSize={40} />
                         </div>
                     </div>

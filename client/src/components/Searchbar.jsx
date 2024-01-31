@@ -36,7 +36,7 @@ const Searchbar = ({searchATerm, setsearchATerm, searchPTerm, setsearchPTerm}) =
             </div>
             <div className='flex flex-row pl-0 md:pl-16 gap-8 lg:gap-20'>
                 <div className='rounded-3xl h-fit p-2 w-fit flex flex-row text-black justify-center items-center border hover:bg-slate-100 shadow-md hover:shadow-none border-slate-400'>
-                    <Link to={'create-article'} className='flex flex-row flex-wrap gap-1 px-6 2xl:px-2 items-center md:w-50 h-full transition ease-in-out duration-300'>
+                    <Link to={'create-article'}  className='flex flex-row flex-wrap gap-1 px-6 2xl:px-2 items-center md:w-50 h-full transition ease-in-out duration-300'>
                         <div className='hidden 2xl:flex text-black'>New Product</div>
                         <IoMdAdd fontSize={30} color='lime'/>
                     </Link>
