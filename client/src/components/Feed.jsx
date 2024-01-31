@@ -76,7 +76,7 @@ const Feed = () => {
                         </div>
                         <div className="flex mt-4 flex-col gap-2">
                         {articles.map(article =>(
-                            <div className="text-black line-clamp-1 capitalize rounded-full w-[100px]  sm:w-auto p-1 px-2 sm:px-4 border border-slate-300 " key={article.article_id}>
+                            <div className="text-black line-clamp-1 capitalize rounded-full w-[100px] max-w-[250px]  sm:w-auto p-1 px-2 sm:px-4 border border-slate-300 " key={article.article_id}>
                                 {article.price}
                             </div>
                         ))}
@@ -100,7 +100,7 @@ const Feed = () => {
                         </div>
                         <div className="flex mt-4 flex-col gap-2">
                         {articles.map(article =>(
-                            <div className="text-black capitalize rounded-full p-1 px-4 border border-slate-300 " key={article.article_id}>
+                            <div className="text-black capitalize rounded-full p-1 line-clamp-1 max-w-[250px] px-4 border border-slate-300 " key={article.article_id}>
                             {article.stock? article.stock:" - "}
                             </div>
                         ))}
