@@ -5,24 +5,42 @@ import Feed from '../components/Feed'
 import CreateArt from '../components/CreateArt'
 import SearchArt from '../components/SearchArt'
 import BtnModal from '../components/BtnModal'
+import Terms from '../components/Terms'
 
 const ArticleCont = () => {
   return (
     <div className= 'flex flex-col grow'>
         <div className=''>
-            <Searchbar />
+            
         </div>
         <div className=''>
             <Routes>
-                <Route path='/invoices/*' element={<Feed />}/>   
+              <Route path='/terms' element={<Terms/>} ></Route>
+                <Route path='/invoices/*' element={
+                <>
+                  <Searchbar />
+                  <Feed />
+                </>
+                }/>   
                 {/* <Route path='/invoices/*' element={
                   <>
                   <Feed />
                   <BtnModal />
                   </>
                 }/>  */}
-                <Route path='/create-article' element={<CreateArt />}/>
-                <Route path='/search' element={<SearchArt />}/>
+                <Route path='invoices/create-article' element={
+                <>
+                  <Searchbar />
+                  <CreateArt />
+                </>
+                
+                }/>
+                <Route path='/search' element={
+                  <>
+                  <Searchbar />
+                  <SearchArt />
+                </>
+                }/>
             </Routes>
         </div>
     </div>

@@ -49,7 +49,7 @@ const Sidebar = ({closeToggle}) => {
 
     //     </div>
     // </div>
-    <div className='w-fit h-full shadow-xl shadow-slate-300 pr-5'>
+    <div className='flex flex-col w-fit shadow-none xl:shadow-xl shadow-slate-300 pr-5'>
         <div className='text-black text-2xl p-5 text-center'>Menu</div>
         <hr className='mb-7 text-center ml-5 bg-blue-500 text-blue-700 border-[#0f7ee9] border'/>
         <ul className='text-black text-lg flex flex-col gap-5 pr-4'>

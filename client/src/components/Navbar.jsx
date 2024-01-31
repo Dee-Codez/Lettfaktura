@@ -4,8 +4,8 @@ import { FaLanguage } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
-    <div className='flex flex-row grow p-4 items-center bg-[#0f7ee9]'>
-        <div className='flex flex-row grow gap-2 md:gap-5'>
+    <div className='flex flex-row w-screen p-4 items-center bg-[#0f7ee9]'>
+        <div className='flex flex-row gap-2 md:gap-5'>
             <div className='md:ml-20 ml-7'>
                 <FaUserCircle fontSize={50} className='text-white' />
             </div>

@@ -62,7 +62,7 @@ const Feed = () => {
                             Product/Service
                             <BiDownArrowAlt fontSize={30} color="lime" />
                         </div>
-                        <div className="flex mt-4   sm:max-w-[380px] max-w-[190px] flex-col gap-2">
+                        <div className="flex mt-4   sm:max-w-[350px] max-w-[190px] flex-col gap-2">
                         {articles.map(article =>(
                             <p className="text-black line-clamp-1 capitalize rounded-full p-1 px-2 sm:px-4 border border-slate-300 " key={article.article_id}>
                                 {article.title}
@@ -121,7 +121,7 @@ const Feed = () => {
                     <div className="mt-12 flex flex-col gap-2">
                         {articles.map(article =>(
                             <>
-                                <Link to={`/invoices/${article.article_id}`} key={article} onClick={() => {
+                                <Link to={`/invoices/${article.article_id}`} key={article.article_id} onClick={() => {
                                     setOpen(true);
                                     setModal(article);
                                     }}>
