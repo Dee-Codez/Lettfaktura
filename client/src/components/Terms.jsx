@@ -1,6 +1,8 @@
 import React, {useState} from 'react'; 
 import {FaArrowCircleUp} from 'react-icons/fa'; 
 import { useNavigate, Link } from 'react-router-dom';
+import { IoIosSkipForward } from "react-icons/io";
+import { GrLinkNext } from "react-icons/gr";
 
 const Terms = () => {
 
@@ -33,15 +35,15 @@ const Terms = () => {
   return (
     <div className= 'flex m-10 rounded-3xl shadow-slate-700 shadow-lg justify-center bg-slate-200  text-black'>
       <div>
-      <div className='hidden bg-blue-200 grow items-end justify-end sm:absolute top-10 right-10'>
-                        <div className=' mt-5 text-right p-5 text-2xl' onClick={() => {navigate('/invoices')}}>
-                            Skip
+        <div className='hidden items-end justify-end sm:flex p-3 px-6'  >
+                        <div className='border hover:bg-slate-300 transition flex flex-row items-center border-green-400 rounded-3xl py-3 px-6 text-2xl cursor-pointer' onClick={() => {navigate('/invoices')}}>
+                            Skip <IoIosSkipForward fontSize={40} />
                         </div>
                     </div>
         <div className='flex'>
-            <div className='flex flex-col items-center'>
+            <div className='flex flex-col items-center pb-10'>
                 <div className='flex flex-row items-center'>
-                    <div className='flex mt-5 p-5 flex-row text-4xl font-semibold '>
+                    <div className='flex p-5 flex-row text-4xl text-center font-semibold '>
                         <div>Terms And Conditions</div>
                     </div>
                     
@@ -97,6 +99,11 @@ const Terms = () => {
                         Have a great day! 
                     </p>
                 </div>
+                <div className='flex p-3 px-6'  >
+                        <div className='border hover:bg-slate-400 hover:border-slate-600 hover:text-white text-red-600 bg-slate-300 transition flex flex-row gap-5 items-center rounded-3xl py-4 px-8 text-2xl cursor-pointer' onClick={() => {navigate('/invoices')}}>
+                            Accept And Continue <GrLinkNext fontSize={40} />
+                        </div>
+                    </div>
             </div>
         </div>
       </div>
