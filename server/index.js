@@ -12,6 +12,10 @@ app.use(express.json()); //access the response
 
 //Create Article
 
+app.get("/",() => {
+    console.log("Hello")
+});   
+
 app.post("/articles", async (req, res) => {
     try {
         const {title,price,unit,stock,descr} = req.body;
