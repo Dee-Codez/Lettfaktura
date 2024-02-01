@@ -25,7 +25,7 @@ app.post("/articles", async (req, res) => {
     }
 })
 
-//Get All Article
+//Get All Article and Terms
 
 app.get("/terms", async (req, res) => {
     try {

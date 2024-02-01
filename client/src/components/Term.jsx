@@ -27,11 +27,22 @@ const Term = () => {
         setImg(imageObjectURL);
       };
 
+    const getTerms = async () => {
+        try {
+            const response = await fetch("https/lettfaktura-backend.vercel.app/terms");
+            const terms = await response.json();
+            setTerms(terms);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
       useEffect(() => {
         fetchImage();
+        getTerms();
     }, []);
 
-    if(!img) return (
+    if(!img || !terms) return (
         <div className='text-2xl flex items-center justify-center text-black'>
             <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
             <div className="inline-block h-20 w-20 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
@@ -68,9 +79,11 @@ const Term = () => {
                                 <div className='text-center text-2xl mt-8 font-semibold'>
                                     Terms And Conditions
                                 </div>
-                                <div className='flex text-center break-words text-lg mt-4 m-2 py-6'>
-                                    
+                                <div className='flex text-center break-words text-lg mt-4 m-2 py-6'>    
                                 <p className='leading-10'>
+                                    {terms.map((term)=>(
+                                        <div key={term}>{term.content}</div>
+                                    ))}
                                      
                                 </p>
                                     
