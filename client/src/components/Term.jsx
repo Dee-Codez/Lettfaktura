@@ -7,6 +7,7 @@ import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom'
 import { MdNavigateNext } from "react-icons/md";
 import { GrLinkNext } from "react-icons/gr";
+import { MdArrowUpward } from "react-icons/md";
 
 
 const imgUrl = 'https://source.unsplash.com/random/1920x1080/?nature,dark';
@@ -164,6 +165,9 @@ const Term = () => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div className={`fixed outline-none  bottom-[80px] right-[40px] h-[20px] text-[3rem]`}>
+                        <MdArrowUpward  onClick={scrollToTop} color='cyan' className= { `animate-bounce bg-white/20 backdrop-blur-sm cursor-pointer ${visible ? "visible" : "invisible "} rounded-full drop-shadow-[0px_0px_3px_var(--tw-shadow-color)] border border-white shadow-slate-900  cursor-pointer`} />
                     </div>
                     
                     
