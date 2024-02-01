@@ -6,6 +6,7 @@ import CreateArt from '../components/CreateArt'
 import SearchArt from '../components/SearchArt'
 import BtnModal from '../components/BtnModal'
 import Terms from '../components/Terms'
+import TnCBtn from '../components/TnCBtn'
 
 const ArticleCont = () => {
   return (
@@ -15,7 +16,8 @@ const ArticleCont = () => {
         </div>
         <div className=''>
             <Routes>
-              <Route path='/terms' element={<Terms/>} ></Route>
+            <Route className path='/home' element={<TnCBtn/>}>
+                </Route>
                 <Route path='/invoices/*' element={
                 <>
                   <Searchbar />

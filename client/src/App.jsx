@@ -7,16 +7,24 @@ import Login from "./components/Login"
 
 
 import './App.css'
+import Term from './components/Term'
 
 function App() {
   const navigate = useNavigate();
   useEffect(() => {
-    navigate('/terms');
+    navigate('/home');
   }, [])
 
   return (
     <>
     <Routes>
+        <Route path="/terms" element={
+        <>
+        <Term />
+        </>
+        
+        
+        } />
         <Route path="/*" element={<Home />} />
       </Routes>
     </>

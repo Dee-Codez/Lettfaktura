@@ -19,10 +19,13 @@ const Home = () => {
         <div className='hidden xl:flex flex-row'>
             <Navbar /> 
         </div>
+        
         <div className='hidden xl:flex grow flex-initial'>
             <Sidebar/>
+            
             <ArticleCont/>
         </div>
+        
             <div className='flex xl:hidden flex-col'>
                 <div className='flex xl:hidden flex-row'>
                     <div className='p-2 w-screen bg-[#0f7ee9] flex flex-row grow pr-8 justify-between items-center shadow-md'>
@@ -40,9 +43,14 @@ const Home = () => {
                                 <div className='font-lg'>English</div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
-                <div><ArticleCont/></div>
+                <div>
+                    
+                    <ArticleCont/>
+                    
+                    </div>
                 {toggleSidebar && (
                         <div className='fixed bg-white h-screen overflow-y-auto z-50 shadow-lg shadow-slate-300 transition-all duration-500 ease-in-out animate-slide-in'>
                             <div className='absolute w-full flex justify-end items-center p-2'>
