@@ -27,6 +27,15 @@ app.post("/articles", async (req, res) => {
 
 //Get All Article
 
+app.get("/terms", async (req, res) => {
+    try {
+        const allTerms = await pool.query("SELECT * FROM tnc ORDER BY tid");
+        res.json(allTerms.rows);
+    } catch (error) {
+        console.error(error.message);
+    }
+})
+
 app.get("/articles", async (req, res) => {
     try {
     const allArticles = await pool.query("SELECT * FROM articles ORDER BY article_id ASC");
