@@ -6,6 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom'
 import { MdNavigateNext } from "react-icons/md";
+import { GrLinkNext } from "react-icons/gr";
 
 
 const imgUrl = 'https://source.unsplash.com/random/1920x1080/?nature,dark';
@@ -20,6 +21,27 @@ const Term = () => {
     const [img, setImg] = useState();
     const [isOpen, setIsOpen] = useState(false);
 
+    const [visible, setVisible] = useState(false) 
+  
+    const toggleVisible = () => { 
+        const scrolled = document.documentElement.scrollTop; 
+        if (scrolled > 300){ 
+        setVisible(true) 
+        }  
+        else if (scrolled <= 300){ 
+        setVisible(false) 
+        } 
+    }; 
+    
+    const scrollToTop = () =>{ 
+        window.scrollTo({ 
+        top: 0,  
+        behavior: 'smooth' //or auto
+        }); 
+    };
+
+    window.addEventListener('scroll', toggleVisible); 
+
     const fetchImage = async () => {
         const res = await fetch(imgUrl);
         const imageBlob = await res.blob();
@@ -29,7 +51,7 @@ const Term = () => {
 
     const getTerms = async () => {
         try {
-            const response = await fetch("https/lettfaktura-backend.vercel.app/terms");
+            const response = await fetch("https://lettfaktura-backend.vercel.app/terms");
             const terms = await response.json();
             setTerms(terms);
         } catch (error) {
@@ -71,21 +93,27 @@ const Term = () => {
                         <TermMenu />
                     </div>
                     <div>
-                        <div className='relative top-16 bg-white left-1/2 transform -translate-x-1/2 max-w-[1000px] my-6 mx-4 z-0 rounded-lg'>
-                            <div className='absolute cursor-pointer top-[34px] right-3' onClick={()=>{navigate('/invoices')}}>
-                                <MdNavigateNext color='lime' fontSize={30} />
+                        <div className='relative top-16 shadow-lg shadow-black/70 bg-white left-1/2 transform -translate-x-1/2 max-w-[1000px] my-6 mr-10 z-0 rounded-lg'>
+                            <div className='absolute cursor-pointer top-[35px] sm:top-[25px] right-2 sm:right-10 sm:border rounded-full sm:p-2 border-black' onClick={()=>{navigate('/invoices')}}>
+                                <GrLinkNext  color='lime' fontSize={27} />
                             </div>
                             <div className=' flex flex-col items-center'>
                                 <div className='text-center text-2xl mt-8 font-semibold'>
                                     Terms And Conditions
                                 </div>
-                                <div className='flex text-center break-words text-lg mt-4 m-2 py-6'>    
-                                <p className='leading-10'>
-                                    {terms.map((term)=>(
-                                        <div key={term}>{term.content}</div>
+                                <div className='flex text-center break-words text-lg mt-6 mx-6  py-6'>    
+                                <div className='leading-9'>
+                                {terms.map((term)=>(
+                                        <>
+                                        <p key={term.tid}>{term.content}</p>
+                                        <div className='h-5'></div>
+                                        </>
+                                        
                                     ))}
+                                </div>
+                                    
                                      
-                                </p>
+                            
                                     
                             </div>
                                 
