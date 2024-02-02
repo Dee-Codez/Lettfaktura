@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import diamond from '../assets/diamond.png';
 import england from "../assets/england.png";
+import bg from "../assets/bg.jpg";
 import TermMenu from './TermMenu';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
@@ -84,30 +85,36 @@ const Term = () => {
         <div >
             <div className='flex'>
                 <div className='w-full z-0'>
-                    <div className='blur-[1px] fixed h-[100vh] flex-grow z-10'>
-                        <img className='w-screen h-[100%] object-cover object-center' src={img}/>
+                    <div className=' fixed h-[100vh] flex-grow z-10'>
+                        <img className='w-screen h-[100%] object-cover object-center' src={bg}/>
                     </div>
                 </div>
                 
-                <div className='absolute w-full z-10'>
+                <div className='absolute mt-16 lg:mt-0 w-full z-10'>
                     <div className='hidden lg:contents w-full z-0'>
                         <TermMenu />
                     </div>
+                    <div className='text-white font-semibold mt-14 text-2xl text-center'>Terms</div>
+                    <div className='text-white mt-5 flex justify-center w-full text-center cursor-pointer' onClick={()=>{navigate('/invoices')}}>
+                        <div className='bg-[#089e1e] font-bold w-fit py-3 px-10 rounded-3xl' >
+                            Close And Go Back
+                        </div>
+                    </div>
                     <div>
-                        <div className='relative top-16 shadow-lg shadow-black/70 bg-white left-1/2 transform -translate-x-1/2 max-w-[1000px] my-6 mr-10 z-0 rounded-lg'>
-                            <div className='absolute cursor-pointer top-[35px] sm:top-[25px] right-2 sm:right-10 sm:border rounded-full sm:p-2 border-black' onClick={()=>{navigate('/invoices')}}>
+                        <div className='relative top-6 bg-white left-1/2 transform -translate-x-1/2 max-w-[750px] my-6 mr-10 z-0 rounded-2xl'>
+                            {/* <div className='absolute cursor-pointer top-[35px] sm:top-[25px] right-2 sm:right-10 sm:border rounded-full sm:p-2 border-black' onClick={()=>{navigate('/invoices')}}>
                                 <GrLinkNext  color='lime' fontSize={27} />
-                            </div>
+                            </div> */}
                             <div className=' flex flex-col items-center'>
-                                <div className='text-center text-2xl mt-8 font-semibold'>
+                                {/* <div className='text-center text-2xl mt-8 font-semibold'>
                                     Terms And Conditions
-                                </div>
-                                <div className='flex text-center break-words text-lg mt-6 mx-6  py-6'>    
-                                <div className='leading-9'>
+                                </div> */}
+                                <div className='flex text-center break-words text-sm mt-6 mx-6  py-6'>    
+                                <div className='leading-6'>
                                 {terms.map((term)=>(
                                         <>
                                         <p key={term.tid}>{term.content}</p>
-                                        <div className='h-5'></div>
+                                        <div className='h-3'></div>
                                         </>
                                         
                                     ))}
@@ -120,38 +127,43 @@ const Term = () => {
                                 
                             </div>
                         </div>
-                        <div className='absolute mt-[100px] pb-20 left-1/2 transform -translate-x-1/2' >
+                        <div className='text-white mt-20 pb-8 flex  justify-center w-full text-center cursor-pointer' onClick={()=>{navigate('/invoices')}}>
+                            <div className='bg-[#089e1e] font-bold w-fit py-3 px-10 rounded-3xl' >
+                                Close And Go Back
+                            </div>
+                        </div>
+                        {/* <div className='absolute mt-[100px] pb-20 left-1/2 transform -translate-x-1/2' >
                             <div className='flex flex-row items-center px-5 py-2 bg-lime-400 rounded-lg cursor-pointer' onClick={()=>{navigate('/invoices')}}> 
                                 <p className=' text-center'>Accept And Continue </p>
                                 <MdNavigateNext fontSize={30} />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     
                     
-                    <div className='absolute top-0 lg:hidden w-full z-50'>
+                    <div className='absolute -top-10 lg:hidden w-full z-50'>
                         <div>
                             <div className='flex flex-col grow z-50'>
-                                <div className='flex h-[60px] w-screen justify-between bg-white/80 shadow-lg '>
+                                <div className='flex h-[60px] w-screen justify-between  '>
                                     <div className='relative mt-3 ml-6 w-[50px] text-white' onClick={()=>{setIsOpen((prev) => !prev)}} >  
                                         {!isOpen ? (<GiHamburgerMenu className='drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900' fontSize={35}/>) : (<RxCross2 className='drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900'  fontSize={35}/>)}
                                     </div>
                                     {isOpen && (
-                                        <div className='absolute  bg-white/20 top-[60px] p-2 py-4 rounded-br-2xl backdrop-blur-xl shadow-lg shadow-black/40'>
-                                            <div className='flex flex-col text-white gap-5'>
-                                                <div className='text-2xl ml-5 pr-4 drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900 cursor-pointer' onClick={()=>{navigate('/home')}}>
+                                        <div className='absolute ml-5  bg-white top-[60px] p-2 py-4 shadow-lg shadow-black/10'>
+                                            <div className='flex flex-col text-black gap-10'>
+                                                <div className='text-md font-semibold ml-5 pr-32  cursor-pointer' onClick={()=>{navigate('/home')}}>
                                                     <p className=''>Home</p>
                                                 </div>
-                                                <div className='text-2xl ml-5 pr-4 drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900 cursor-pointer' onClick={()=>{navigate('/invoices')}}>
+                                                <div className='text-md font-semibold ml-5 pr-32  cursor-pointer' onClick={()=>{navigate('/invoices')}}>
                                                     Orders
                                                 </div>
-                                                <div className='text-2xl ml-5 pr-4 drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900 cursor-pointer' onClick={()=>{navigate('/home')}}>
+                                                <div className='text-md font-semibold ml-5 pr-32  cursor-pointer' onClick={()=>{navigate('/home')}}>
                                                     Our Customers
                                                 </div>
-                                                <div className='text-2xl ml-5 pr-4 drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900 cursor-pointer' onClick={()=>{navigate('/home')}}>
+                                                <div className='text-md font-semibold ml-5 pr-32  cursor-pointer' onClick={()=>{navigate('/home')}}>
                                                     About Us
                                                 </div>
-                                                <div className='text-2xl ml-5 pr-4 drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900 cursor-pointer' onClick={()=>{navigate('/home')}}>
+                                                <div className='text-md font-semibold ml-5 pr-32  cursor-pointer' onClick={()=>{navigate('/home')}}>
                                                     Contact Us
                                                 </div>
                                             </div>
@@ -166,9 +178,9 @@ const Term = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={`fixed outline-none  bottom-[80px] right-[40px] h-[20px] text-[3rem]`}>
+                    {/* <div className={`fixed outline-none  bottom-[80px] right-[40px] h-[20px] text-[3rem]`}>
                         <MdArrowUpward  onClick={scrollToTop} color='cyan' className= { `animate-bounce bg-white/20 backdrop-blur-sm cursor-pointer ${visible ? "visible" : "invisible "} rounded-full drop-shadow-[0px_0px_3px_var(--tw-shadow-color)] border border-white shadow-slate-900  cursor-pointer`} />
-                    </div>
+                    </div> */}
                     
                     
                 </div>

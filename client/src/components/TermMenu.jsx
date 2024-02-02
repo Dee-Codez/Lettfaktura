@@ -11,29 +11,29 @@ const TermMenu = () => {
   return (
                 <div>
                     <div className='flex flex-col text-white'>
-                        <div className='flex h-[70px] justify-between bg-white/20 backdrop-blur-xl shadow-lg '>
+                        <div className='flex mt-3 h-[70px] justify-around '>
                             <div className='flex cursor-pointer items-center ml-10 w-[70px]' onClick={()=>{navigate('/home')}}>
                                 <img src={diamond}/>
                            </div>
-                           <div className='flex flex-row items-center gap-10 mr-20'>
-                                <div className='p-1 text-lg hover:text-slate-900 cursor-pointer' onClick={()=>{navigate('/home')}}>
+                           <div className='flex flex-row items-center font-semibold gap-5 mr-20'>
+                                <div className='p-1 text-md hover:text-slate-400 cursor-pointer' onClick={()=>{navigate('/home')}}>
                                     <p className='drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900'>Home</p>
                                 </div>
-                                <div className='p-1 text-lg hover:text-slate-900 cursor-pointer' onClick={()=>{navigate('/invoices')}}>
+                                <div className='p-1 text-md hover:text-slate-400 cursor-pointer' onClick={()=>{navigate('/invoices')}}>
                                     <h2 className='drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900'>Orders</h2>
                                 </div>
-                                <div className='p-1 text-lg hover:text-slate-900 cursor-pointer' onClick={()=>{navigate('/invoices')}}>
+                                <div className='p-1 text-md hover:text-slate-400 cursor-pointer' onClick={()=>{navigate('/invoices')}}>
                                     <h2 className='drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900'>Our Customers</h2>
                                 </div>
-                                <div className='p-1 text-lg hover:text-slate-900 cursor-pointer' onClick={()=>{navigate('/home')}}>
+                                <div className='p-1 text-md hover:text-slate-400 cursor-pointer' onClick={()=>{navigate('/home')}}>
                                     <h2 className='drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900'>About Us</h2>
                                 </div>
-                                <div className='p-1 text-lg hover:text-slate-900 cursor-pointer' onClick={()=>{navigate('/home')}}>
+                                <div className='p-1 text-md hover:text-slate-400 cursor-pointer' onClick={()=>{navigate('/home')}}>
                                     <h2 className='drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900'>Contact Us</h2>
                                 </div>
-                                <div className='p-1 flex flex-row items-center gap-5 text-lg cursor-pointer drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900'>
+                                <div className='p-1 flex flex-row items-center gap-5 text-sm cursor-pointer drop-shadow-[1px_1px_1px_var(--tw-shadow-color)] shadow-slate-900'>
                                     English
-                                    <img className='h-6' src={england} />
+                                    <img className='h-4' src={england} />
                                 </div>
                            </div>
                             
