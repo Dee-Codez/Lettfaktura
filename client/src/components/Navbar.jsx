@@ -1,11 +1,15 @@
 import React from 'react'
 import { FaUserCircle } from "react-icons/fa";
 import { FaLanguage } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    
+    const navigate = useNavigate();
+
   return (
     <div className='flex flex-row w-screen p-4 items-center bg-[#0f7ee9]'>
-        <div className='flex flex-row gap-2 md:gap-5'>
+        <div className='flex flex-row gap-2 md:gap-5 cursor-pointer' onClick={()=>{navigate('/home')}}>
             <div className='md:ml-20 ml-7'>
                 <FaUserCircle fontSize={50} className='text-white' />
             </div>
