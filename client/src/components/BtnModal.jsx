@@ -39,7 +39,7 @@ const BtnModal = ({open , onClose, article}) => {
 
     const onDelete = async () => {
         try {
-            const response = await fetch(`https://lettfaktura-express.onrender.com/${article.article_id}`,{
+            const response = await fetch(`https://lettfaktura-express.onrender.com/articles/${article.article_id}`,{
                 method: 'DELETE',
             })
             onClose();
