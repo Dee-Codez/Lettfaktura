@@ -46,7 +46,7 @@ const Feed = () => {
                 <div className='flex flex-row gap-4 sm:gap-8'>
                     <div className='hidden ph:flex flex-col items-center'>
                         <div className="flex min-w-[120px] flex-row mx-2 mt-1 items-center">
-                            Article No.
+                            Article ID
                             <BiDownArrowAlt fontSize={30} color="cyan" />
                         </div>
                     <div className="flex mt-4 flex-col gap-2">
@@ -59,7 +59,7 @@ const Feed = () => {
                     </div>
                     <div className='flex flex-col ml-[-20px] sm:ml-0'>
                         <div className="flex flex-row mt-1 items-center">
-                            Product/Service
+                            Title
                             <BiDownArrowAlt fontSize={30} color="lime" />
                         </div>
                         <div className="flex mt-4   sm:max-w-[350px] max-w-[190px] flex-col gap-2">
