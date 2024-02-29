@@ -9,11 +9,11 @@ app.use(express.json()); //access the response
 
 //Routes
 
-//Create Article
-
-app.get("/",() => {
-    console.log("Hello")
+app.get("/",async (req,res) => {
+    res.json("Hello");
 });   
+
+//Create Article
 
 app.post("/articles", async (req, res) => {
     try {

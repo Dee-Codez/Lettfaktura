@@ -16,7 +16,7 @@ const ArticleCont = () => {
         </div>
         <div className=''>
             <Routes>
-            <Route className path='/home' element={<TnCBtn/>}>
+            < Route className path='/home' element={<TnCBtn/>}>
                 </Route>
                 <Route path='/invoices/*' element={
                 <>
