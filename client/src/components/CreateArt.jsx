@@ -15,7 +15,7 @@ const CreateArt = () => {
         e.preventDefault();
         try {
             const body = {title,price,unit,stock,descr};
-            const response = await fetch(`https://lettfaktura-express.onrender.com/articles/`,{
+            const response = await fetch(`https://lettfaktura-backend.vercel.app/articles/`,{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body)

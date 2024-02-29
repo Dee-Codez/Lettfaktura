@@ -17,7 +17,7 @@ const Feed = () => {
 
     const getArticles = async () => {
         try {
-            const response = await fetch("https://lettfaktura-express.onrender.com/articles")
+            const response = await fetch("https://lettfaktura-backend.vercel.app/articles")
             const articles = await response.json()
             setArticles(articles)
         } catch (error) {
