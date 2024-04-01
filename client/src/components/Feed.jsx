@@ -13,7 +13,7 @@ const Feed = () => {
     const [open,setOpen] = useState(false);
     const [modal, setModal] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
-
+    const [searchArticles, setSearchArticles] = useState([]);
 
     const getArticles = async () => {
         try {
@@ -35,12 +35,13 @@ const Feed = () => {
 
     const searchArticles = () => {
         const terms = searchTerm.toLowerCase().split(' ');
-        return articles.filter(article =>
+        const searchArticles= articles.filter(article =>
             terms.some(term =>
                 article.title.toLowerCase().includes(term) ||
                 article.category.toLowerCase().includes(term)
             )
         );
+        setSearchArticles(searchArticles);
     }
     const openModel = (article) => {
         return (
@@ -62,7 +63,7 @@ const Feed = () => {
         <div className='mt-10 mx-10'>
             <div>
                 <SearchArt searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-                {articles.map((article, index) => (
+                {searchArticles.map((article, index) => (
                     <div key={index}>
                         <h2>{article.title}</h2>
                         <p>{article.category}</p>
