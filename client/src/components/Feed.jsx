@@ -33,7 +33,7 @@ const Feed = () => {
         }
     }
 
-    const searchArticles = () => {
+    const searchAllArticles = () => {
         const terms = searchTerm.toLowerCase().split(' ');
         const searchArticles= articles.filter(article =>
             terms.some(term =>
@@ -52,6 +52,10 @@ const Feed = () => {
     useEffect(() => {
       getArticles();
 }, [open])
+
+    useEffect(() => {
+        searchAllArticles();
+    }, [searchTerm])
     
 
   return (
