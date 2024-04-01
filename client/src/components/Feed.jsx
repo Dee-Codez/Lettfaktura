@@ -3,7 +3,7 @@ import { BiDownArrowAlt } from "react-icons/bi";
 import { CiMenuKebab } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom";
 import BtnModal from '../components/BtnModal'
-
+import SearchArt from "./SearchArt";
 
 const Feed = () => {
 
@@ -12,17 +12,35 @@ const Feed = () => {
     const [articles, setArticles] = useState([]);
     const [open,setOpen] = useState(false);
     const [modal, setModal] = useState(null);
-    
+    const [searchTerm, setSearchTerm] = useState('');
 
 
     const getArticles = async () => {
         try {
             const response = await fetch("https://lettfaktura-backend.vercel.app/articles")
             const articles = await response.json()
-            setArticles(articles)
+            setArticles(articles);
+            articles.sort((a, b) => {
+                // Compare by category
+                const categoryComparison = a.category.localeCompare(b.category);
+                if (categoryComparison !== 0) return categoryComparison;
+    
+                // If categories are equal, compare by title
+                return a.title.localeCompare(b.title);
+            });
         } catch (error) {
             console.error(error.message);
         }
+    }
+
+    const searchArticles = () => {
+        const terms = searchTerm.toLowerCase().split(' ');
+        return articles.filter(article =>
+            terms.some(term =>
+                article.title.toLowerCase().includes(term) ||
+                article.category.toLowerCase().includes(term)
+            )
+        );
     }
     const openModel = (article) => {
         return (
@@ -42,11 +60,20 @@ const Feed = () => {
     <div className='text-black'>
       <div>
         <div className='mt-10 mx-10'>
+            <div>
+                <SearchArt searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                {articles.map((article, index) => (
+                    <div key={index}>
+                        <h2>{article.title}</h2>
+                        <p>{article.category}</p>
+                    </div>
+                ))}
+            </div>
             <div className='flex items-center justify-center'>
                 <div className='flex flex-row gap-4 sm:gap-8'>
                     <div className='hidden ph:flex flex-col items-center'>
                         <div className="flex min-w-[120px] flex-row mx-2 mt-1 items-center">
-                            Article ID
+                            Aritcle_id
                             <BiDownArrowAlt fontSize={30} color="cyan" />
                         </div>
                     <div className="flex mt-4 flex-col gap-2">

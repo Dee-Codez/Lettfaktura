@@ -19,16 +19,16 @@ const Sidebar = ({closeToggle}) => {
 
     let categs = [
         {name:"Invoices", link:"invoices", img:<LiaFileInvoiceSolid fontSize={25} className='text-blue-500'/>},
-        {name:"Customers", link:"customer",img:<BsFillPeopleFill fontSize={25} className='text-emerald-300'/>},
-        {name:"My Business", link:"mybusiness",img:<GoGear fontSize={25} className='text-cyan-400'/>},
-        {name:"Invoice Journal", link:"invoicejournal",img:<BsFillJournalBookmarkFill fontSize={25} className='text-[#0ea5e9]'/>},
-        {name:"Price List", link:"pricelist",img:<IoIosPricetags fontSize={25} className='text-[#ffa959]' />},
-        {name:"Multiple Invoice", link:"multipleinvoices",img:<LiaFileInvoiceDollarSolid  fontSize={25} className='text-[#0ea5e9]'/>},
-        {name:"Unpaid Invoices", link:"unpaidinvoices",img:<RxCrossCircled fontSize={25} className='text-[#ff5555]' />},
-        {name:"Offer", link:"offer",img:<BiSolidOffer  fontSize={25} className='text-[#ffe96c]'/>},
-        {name:"Inventory Control", link:"inventorycontrol",img:<MdInventory  fontSize={25} className='text-[#38ffff]'/>},
-        {name:"Member Invoicing", link:"memberinvoice",img:<FaRegAddressCard fontSize={25} className='text-[#0ea5e9]' />},
-        {name:"Import/Export", link:"importexport",img:<MdImportExport fontSize={25} className='text-[#205b77]' />},
+        // {name:"Customers", link:"customer",img:<BsFillPeopleFill fontSize={25} className='text-emerald-300'/>},
+        // {name:"My Business", link:"mybusiness",img:<GoGear fontSize={25} className='text-cyan-400'/>},
+        // {name:"Invoice Journal", link:"invoicejournal",img:<BsFillJournalBookmarkFill fontSize={25} className='text-[#0ea5e9]'/>},
+        // {name:"Price List", link:"pricelist",img:<IoIosPricetags fontSize={25} className='text-[#ffa959]' />},
+        // {name:"Multiple Invoice", link:"multipleinvoices",img:<LiaFileInvoiceDollarSolid  fontSize={25} className='text-[#0ea5e9]'/>},
+        // {name:"Unpaid Invoices", link:"unpaidinvoices",img:<RxCrossCircled fontSize={25} className='text-[#ff5555]' />},
+        // {name:"Offer", link:"offer",img:<BiSolidOffer  fontSize={25} className='text-[#ffe96c]'/>},
+        // {name:"Inventory Control", link:"inventorycontrol",img:<MdInventory  fontSize={25} className='text-[#38ffff]'/>},
+        // {name:"Member Invoicing", link:"memberinvoice",img:<FaRegAddressCard fontSize={25} className='text-[#0ea5e9]' />},
+        // {name:"Import/Export", link:"importexport",img:<MdImportExport fontSize={25} className='text-[#205b77]' />},
     ];
 
     const handleCloseSidebar = () => {
