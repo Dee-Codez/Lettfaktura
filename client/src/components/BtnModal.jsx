@@ -97,7 +97,7 @@ const BtnModal = ({open , onClose, article}) => {
                                     className='outline-none text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-white'
                                 />
                     </div>
-                    <div className='flex flex-row mt-6'>
+                    {/* <div className='flex flex-row mt-6'>
                         <label className='text-3xl px-2 sm:px-4' htmlFor="unit">Unit : </label>
                         <div className='text-center'>
                                     <select 
@@ -112,6 +112,18 @@ const BtnModal = ({open , onClose, article}) => {
                                         <option key="mph" value="mph">Mile/Hour</option>
                                     </select>
                         </div>
+                    </div> */}
+                    <div className='flex flex-row mt-6'>
+                        <label className='text-3xl px-2 sm:px-4' htmlFor="price">Unit : </label>
+                        <input type="text"
+                                    inputMode="numeric" 
+                                    value={unit}
+                                    onChange={(e)=> {
+                                    setUnit(e.target.value);
+                                    }}
+                                    placeholder='Enter Price'
+                                    className='outline-none text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-white'
+                                />
                     </div>
                     <div className='flex flex-row mt-6'>
                         <label className='text-3xl px-2 sm:px-4' htmlFor="stock">Stock : </label>

@@ -66,7 +66,7 @@ const Feed = () => {
       <div>
         <div className='mt-10 mx-10'>
             <div>
-                <SearchArt searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                {/* <SearchArt searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> */}
                 {searchArticles.map((article, index) => (
                     <div key={index}>
                         <h2>{article.title}</h2>

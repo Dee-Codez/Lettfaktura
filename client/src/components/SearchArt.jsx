@@ -1,9 +1,13 @@
 import React from 'react'
 
-const SearchArt = () => {
+const SearchArt = ({ArticleTerm,ProductTerm}) => {
   return (
-    <div>
-      Searching
+    <div className='text-black'>
+      Searching 
+      <br />
+      Article No. : {ArticleTerm}
+      <br />
+      Product/Service : {ProductTerm}
     </div>
   )
 }

@@ -9,6 +9,10 @@ import Terms from '../components/Terms'
 import TnCBtn from '../components/TnCBtn'
 
 const ArticleCont = () => {
+
+  const [Aterm, setAterm] = useState("");
+  const [Pterm, setPterm] = useState("");
+
   return (
     <div className= 'flex flex-col grow'>
         <div className=''>
@@ -39,8 +43,8 @@ const ArticleCont = () => {
                 }/>
                 <Route path='/search' element={
                   <>
-                  <Searchbar />
-                  <SearchArt />
+                  <Searchbar searchATerm={Aterm} setsearchATerm={setAterm} searchPTerm={Pterm} setsearchPTerm={setPterm}  />
+                  <SearchArt ArticleTerm={Aterm} ProductTerm={Pterm} />
                 </>
                 }/>
             </Routes>

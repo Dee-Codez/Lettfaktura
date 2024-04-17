@@ -53,7 +53,7 @@ const CreateArt = () => {
                                 placeholder='Enter Price'
                                 className='outline-none text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-slate-100'
                             />
-                            <div className='text-center'>
+                            {/* <div className='text-center'>
                                 <select 
                                     className='outline-none w-4/5 text-base font-normal border-b-2 text-center border-[#0f7ee9] bg-slate-100 p-2 rounded-md cursor-pointer'
                                     onChange={(e) => {
@@ -64,7 +64,16 @@ const CreateArt = () => {
                                     <option key="kmph" value="kmph">Kilometer/Hour</option>
                                     <option key="mph" value="mph">Mile/Hour</option>
                                 </select>
-                            </div>
+                            </div> */}
+                            <input type="text"
+                                inputMode="numeric" 
+                                value={unit}
+                                onChange={(e)=> {
+                                setUnit(e.target.value);
+                                }}
+                                placeholder='Enter Unit'
+                                className='outline-none text-base sm:text-lg text-center border-b-2 border-[#0f7ee9] p-2 bg-slate-100'
+                            />
                             <input type="text"
                                 inputMode="numeric" 
                                 value={stock}
