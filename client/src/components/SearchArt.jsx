@@ -20,6 +20,40 @@ const SearchArt = ({ArticleTerm,ProductTerm}) => {
   }, [ArticleTerm, ProductTerm]);
 
 
+  // eslint-disable-next-line no-unused-vars
+  const binarySearchArticlesByID = useCallback(async (id) => {
+    try {
+      // Fetch all articles
+      const response = await fetch('https://lettfaktura-backend.vercel.app/articles');
+      let articles = await response.json();
+  
+      // Sort articles by ID
+      articles.sort((a, b) => a.article_id - b.article_id);
+  
+      // Binary search
+      let start = 0;
+      let end = articles.length - 1;
+  
+      while (start <= end) {
+        const mid = Math.floor((start + end) / 2);
+  
+        if (articles[mid].article_id === id) {
+          // Found the article
+          return articles[mid];
+        } else if (articles[mid].article_id < id) {
+          start = mid + 1;
+        } else {
+          end = mid - 1;
+        }
+      }
+  
+      // Article not found
+      return null;
+    } catch (error) {
+      console.error(error.message);
+    }
+  }, []);
+
     const searchArticlesbyID = useCallback(async () => {
         try {
             const response = await fetch(`https://lettfaktura-backend.vercel.app/articles/id/${currArt}`)
