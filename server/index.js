@@ -48,15 +48,25 @@ app.get("/articles", async (req, res) => {
 
 //Get An Article
 
-app.get("/articles/:id", async (req,res) => {
+app.get("/articles/id/:art_id", async (req,res) => {
     try {
-        const {id} = req.params;
-        const articles = await pool.query("SELECT * FROM articles WHERE article_id = $1",[id]);
-        res.json(articles.rows[0]);
+        const {art_id} = req.params;
+        const articles = await pool.query("SELECT * FROM articles WHERE CAST(article_id AS TEXT) LIKE $1",['%' + art_id + '%']);
+        res.json(articles.rows);
     } catch (error) {
         console.error(error.message);
     }
 
+})
+
+app.get("/articles/title/:title", async (req,res) => {
+    try {
+        const {title} = req.params;
+        const articles = await pool.query("SELECT * FROM articles WHERE title ILIKE $1",['%' + title + '%']);
+        res.json(articles.rows);
+    } catch (error) {
+        console.error(error.message);
+    }
 })
 
 //Update An Article 

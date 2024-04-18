@@ -68,7 +68,8 @@ const Searchbar = ({searchATerm, setsearchATerm, searchPTerm, setsearchPTerm}) =
                     <input 
                     type="text" 
                     onChange={(e) => setsearchATerm(e.target.value)}
-                    placeholder='Search Article No.'
+                    onClick={() => setsearchPTerm('')}
+                    placeholder='Search Article ID'
                     value={searchATerm}
                     onFocus={() => navigate('/search')}
                     className='p-2 w-full bg-white outline-none'
@@ -79,7 +80,8 @@ const Searchbar = ({searchATerm, setsearchATerm, searchPTerm, setsearchPTerm}) =
                     <input 
                     type="text" 
                     onChange={(e) => setsearchPTerm(e.target.value)}
-                    placeholder='Search Product'
+                    onClick={() => setsearchATerm('')}
+                    placeholder='Search Title'
                     value={searchPTerm}
                     onFocus={() => navigate('/search')}
                     className='p-2 w-full bg-white outline-none'
@@ -94,13 +96,13 @@ const Searchbar = ({searchATerm, setsearchATerm, searchPTerm, setsearchPTerm}) =
                         <IoMdAdd fontSize={30} color='lime'/>
                     </Link>
                 </div>
-                <div className='rounded-3xl h-fit p-2 w-fit flex flex-row text-black justify-center items-center border hover:bg-slate-100 shadow-md hover:shadow-none border-slate-400'>
-                    {loading ? <div className='flex justify-center gap-2 m-1 items-center text-white'>
+                <div className='rounded-3xl h-fit w-fit flex flex-row text-black justify-center items-center border hover:bg-slate-100 shadow-md hover:shadow-none border-slate-400'>
+                    {loading ? <div className='flex justify-center p-2 gap-2 m-1 items-center text-white'>
                         Loading..
                         <div className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
                         </div>
                     </div> : 
-                    <Link to={'print'} onClick={generatePDF} className='flex flex-row flex-wrap gap-1 px-6 2xl:px-2 items-center md:w-50 h-full transition ease-in-out duration-300'>
+                    <Link to={'print'} onClick={generatePDF} className='flex flex-row flex-wrap gap-1 py-2 px-8 2xl:px-4 items-center md:w-50 h-full transition ease-in-out duration-300'>
                         <div className='hidden 2xl:flex text-black pr-1'>Print List</div>
                         <FaPrint fontSize={30} color='yellow'/>
                     </Link>

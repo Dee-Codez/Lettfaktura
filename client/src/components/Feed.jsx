@@ -21,11 +21,11 @@ const Feed = () => {
             const articles = await response.json()
             setArticles(articles);
             articles.sort((a, b) => {
-                // Compare by category
-                const categoryComparison = a.category.localeCompare(b.category);
-                if (categoryComparison !== 0) return categoryComparison;
-    
-                // If categories are equal, compare by title
+                // Compare by article_id numerically
+                const idComparison = a.article_id - b.article_id;
+                if (idComparison !== 0) return idComparison;
+            
+                // If article_ids are equal, compare by title
                 return a.title.localeCompare(b.title);
             });
         } catch (error) {
@@ -65,25 +65,16 @@ const Feed = () => {
     <div className='text-black'>
       <div>
         <div className='mt-10 mx-10'>
-            <div>
-                {/* <SearchArt searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> */}
-                {searchArticles.map((article, index) => (
-                    <div key={index}>
-                        <h2>{article.title}</h2>
-                        <p>{article.category}</p>
-                    </div>
-                ))}
-            </div>
             <div className='flex items-center justify-center'>
                 <div className='flex flex-row gap-4 sm:gap-8'>
                     <div className='hidden ph:flex flex-col items-center'>
                         <div className="flex min-w-[120px] flex-row mx-2 mt-1 items-center">
-                            Aritcle_id
+                            Article_ID
                             <BiDownArrowAlt fontSize={30} color="cyan" />
                         </div>
                     <div className="flex mt-4 flex-col gap-2">
-                        {articles.map(article =>(
-                            <div className="text-black rounded-full p-1 px-10 border border-slate-300 " key={article.article_id}>
+                        {articles.map((article,index) =>(
+                            <div key={index} className="text-black rounded-full p-1 px-10 border border-slate-300 " key={article.article_id}>
                                 {article.article_id}
                             </div>
                         ))}
@@ -95,8 +86,8 @@ const Feed = () => {
                             <BiDownArrowAlt fontSize={30} color="lime" />
                         </div>
                         <div className="flex mt-4   sm:max-w-[350px] max-w-[190px] flex-col gap-2">
-                        {articles.map(article =>(
-                            <p className="text-black line-clamp-1 capitalize rounded-full p-1 px-2 sm:px-4 border border-slate-300 " key={article.article_id}>
+                        {articles.map((article,index) =>(
+                            <p key={index} className="text-black line-clamp-1 capitalize rounded-full p-1 px-2 sm:px-4 border border-slate-300 " key={article.article_id}>
                                 {article.title}
                             </p>
                         ))}
@@ -107,9 +98,9 @@ const Feed = () => {
                             Price
                         </div>
                         <div className="flex mt-4 flex-col gap-2">
-                        {articles.map(article =>(
-                            <div className="text-black line-clamp-1 capitalize rounded-full w-[100px] max-w-[250px]  sm:w-auto p-1 px-2 sm:px-4 border border-slate-300 " key={article.article_id}>
-                                {article.price}
+                        {articles.map((article,index) =>(
+                            <div key={index} className="text-black line-clamp-1 capitalize rounded-full w-[100px] max-w-[250px]  sm:w-auto p-1 px-2 sm:px-4 border border-slate-300 " key={article.article_id}>
+                                {article.price? article.price:" - "}
                             </div>
                         ))}
                         </div>
@@ -119,8 +110,8 @@ const Feed = () => {
                             Unit
                         </div>
                         <div className="flex mt-4 flex-col gap-2">
-                        {articles.map(article =>(
-                            <div className="text-black capitalize rounded-full p-1 px-4 border border-slate-300 " key={article.article_id}>
+                        {articles.map((article,index) =>(
+                            <div key={index} className="text-black capitalize rounded-full p-1 px-4 border border-slate-300 " key={article.article_id}>
                             {article.unit? article.unit:" - "}
                             </div>
                         ))}
@@ -131,8 +122,8 @@ const Feed = () => {
                             Stock
                         </div>
                         <div className="flex mt-4 flex-col gap-2">
-                        {articles.map(article =>(
-                            <div className="text-black capitalize rounded-full p-1 line-clamp-1 max-w-[250px] px-4 border border-slate-300 " key={article.article_id}>
+                        {articles.map((article,index) =>(
+                            <div key={index} className="text-black capitalize rounded-full p-1 line-clamp-1 max-w-[250px] px-4 border border-slate-300 " key={article.article_id}>
                             {article.stock? article.stock:" - "}
                             </div>
                         ))}
@@ -143,16 +134,16 @@ const Feed = () => {
                             Description
                         </div>
                         <div className="flex mt-4 max-h-1 flex-col gap-2">
-                        {articles.map(article =>(
-                            <p className="text-black pb-7 line-clamp-1 max-w-[300px]  rounded-full p-1 px-4 border border-slate-300 " key={article.article_id}>
+                        {articles.map((article,index) =>(
+                            <p key={index} className="text-black pb-7 line-clamp-1 max-w-[300px]  rounded-full p-1 px-4 border border-slate-300 " key={article.article_id}>
                             {article.descr? article.descr:" - "}
                             </p>
                         ))}
                         </div>
                     </div>
                     <div className="mt-12 flex flex-col gap-2">
-                        {articles.map(article =>(
-                            <>
+                        {articles.map((article,index) =>(
+                            <div key={index}>
                                 <Link to={`/invoices/${article.article_id}`} key={article.article_id} onClick={() => {
                                     setOpen(true);
                                     setModal(article);
@@ -167,7 +158,7 @@ const Feed = () => {
                                         navigate("/invoices");
                                     }}  article={modal}/>
                                 ) : (<></>)}
-                            </>
+                            </div>
                                 
                         ))}
                     </div>
