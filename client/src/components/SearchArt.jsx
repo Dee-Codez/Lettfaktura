@@ -22,7 +22,7 @@ const SearchArt = ({ArticleTerm,ProductTerm}) => {
 
     const searchArticlesbyID = useCallback(async () => {
         try {
-            const response = await fetch(`http://localhost:5000/articles/id/${currArt}`)
+            const response = await fetch(`https://lettfaktura-backend.vercel.app/articles/id/${currArt}`)
             const articles = await response.json()
             console.log(articles);
             return articles;
@@ -33,7 +33,7 @@ const SearchArt = ({ArticleTerm,ProductTerm}) => {
 
     const searchArticlesbyTitle = useCallback(async () => {
       try {
-          const response = await fetch(`http://localhost:5000/articles/title/${currProd}`)
+          const response = await fetch(`https://lettfaktura-backend.vercel.app/articles/title/${currProd}`)
           const articles = await response.json()
           console.log(articles);
           return articles;
