@@ -1,7 +1,7 @@
 CREATE DATABASE LettDB;
 
 -- Query 1: Create the USER table
-CREATE TABLE USER(
+CREATE TABLE USERS(
     user_id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL

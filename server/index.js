@@ -94,6 +94,17 @@ app.delete("/articles/:id",async(req,res) => {
     }
 })
 
+//Get All Users
+
+app.get("/users", async (req, res) => {
+    try {
+        const allUsers = await pool.query("SELECT * FROM users ORDER BY user_id ASC");
+        res.json(allUsers.rows);
+    } catch (error) {
+        console.error(error.message);
+    }
+});
+
 
 app.listen(process.env.PORT, () => {
     console.log('Server listening on port 5000');
